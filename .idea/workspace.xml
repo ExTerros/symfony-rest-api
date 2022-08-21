@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1bd9a31-e1fe-499b-b946-43d2106413f2" name="Changes" comment="Add updateBook">
+    <list default="true" id="a1bd9a31-e1fe-499b-b946-43d2106413f2" name="Changes" comment="Add createAuthor, updateAuthor">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/symfony-rest-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/symfony-rest-api.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +94,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
     </include_path>
   </component>
   <component name="ProjectId" id="2De2C8FCwDMCBx77dbhzo8yWTjP" />
@@ -118,7 +127,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661045109641</updated>
       <workItem from="1661045116570" duration="3156000" />
-      <workItem from="1661066730637" duration="6970000" />
+      <workItem from="1661066730637" duration="8321000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1661069612286</created>
@@ -176,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661073181228</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add createAuthor, updateAuthor">
+      <created>1661073771201</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661073771201</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,6 +216,7 @@
     <MESSAGE value="Add DeleteBook" />
     <MESSAGE value="Add createBook" />
     <MESSAGE value="Add updateBook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add updateBook" />
+    <MESSAGE value="Add createAuthor, updateAuthor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add createAuthor, updateAuthor" />
   </component>
 </project>
