@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a1bd9a31-e1fe-499b-b946-43d2106413f2" name="Changes" comment="first commit">
+    <list default="true" id="a1bd9a31-e1fe-499b-b946-43d2106413f2" name="Changes" comment="Add getAuthor for book id, title, coverText">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Author.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Book.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Book.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AuthorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AuthorController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BookController.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +119,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661045109641</updated>
       <workItem from="1661045116570" duration="3156000" />
-      <workItem from="1661066730637" duration="3369000" />
+      <workItem from="1661066730637" duration="4144000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1661069612286</created>
@@ -128,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1661069612286</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Author">
+      <created>1661070262997</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661070262997</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Add getAuthor for book id, title, coverText">
+      <created>1661070311044</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661070311044</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +161,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="Add Author" />
+    <MESSAGE value="Add getAuthor for book id, title, coverText" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add getAuthor for book id, title, coverText" />
   </component>
 </project>
