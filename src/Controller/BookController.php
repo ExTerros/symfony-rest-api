@@ -7,8 +7,10 @@ use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class BookController extends AbstractController
@@ -69,5 +71,24 @@ class BookController extends AbstractController
 
         //return null 204
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);
+    }
+
+    #[Route('/api/books', name: 'createBook', methods: ['POST'])]
+    public function createBook(Request $request, SerializerInterface $serializer, EntityManagerInterface $entityManager, UrlGeneratorInterface $urlGenerator): JsonResponse
+    {
+        //Request Content Post and deserialize in book object
+        $book = $serializer->deserialize($request->getContent(), Book::class, 'json');
+
+        $entityManager->persist($book);
+        $entityManager->flush();
+
+        //return book when is created
+        $jsonBook = $serializer->serialize($book, 'json', ['groups' => 'getBooks']);
+
+        //get url of detailBook where id = $book->getId()
+        $location = $urlGenerator->generate('detailBook', ['id' => $book->getId()], UrlGeneratorInterface::ABSOLUTE_URL);
+
+        //return $jsonBook
+        return new JsonResponse($jsonBook, Response::HTTP_CREATED, ["Location" => $location], true);
     }
 }
