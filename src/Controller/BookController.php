@@ -6,12 +6,14 @@ use App\Entity\Book;
 use App\Repository\AuthorRepository;
 use App\Repository\BookRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Container\ContainerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\SerializerInterface;
 
 class BookController extends AbstractController
@@ -98,5 +100,25 @@ class BookController extends AbstractController
 
         //return $jsonBook
         return new JsonResponse($jsonBook, Response::HTTP_CREATED, ["Location" => $location], true);
+    }
+
+    #[Route('/api/books/{id}', name: 'updateBook', methods: ['PUT'])]
+    public function updateBook(Request $request, SerializerInterface $serializer, Book $currentBook, EntityManagerInterface $entityManager,
+        AuthorRepository $authorRepository): JsonResponse
+    {
+        //deserialize $currentBook to write in
+        $updatedBook = $serializer->deserialize($request->getContent(), Book::class, 'json', [AbstractNormalizer::OBJECT_TO_POPULATE => $currentBook]);
+
+        //request content in array to get idAuthor Content
+        $content = $request->toArray();
+        $idAuthor = $content['idAuthor'] ?? -1;
+
+        //find $idAuthor entity and update book author
+        $updatedBook->setAuthor($authorRepository->find($idAuthor));
+
+        $entityManager->persist($updatedBook);
+        $entityManager->flush();
+
+        return new JsonResponse(null, Response::HTTP_NO_CONTENT);
     }
 }
