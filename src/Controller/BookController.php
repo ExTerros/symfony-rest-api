@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Controller;
+
+use App\Entity\Book;
+use App\Repository\BookRepository;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\SerializerInterface;
+
+class BookController extends AbstractController
+{
+    #[Route('/api/books', name: 'book', methods: ['GET'])]
+    public function getAllBooks(BookRepository $bookRepository, SerializerInterface $serializer): JsonResponse
+    {
+        //Find all books in Repository
+        $bookList = $bookRepository->findAll();
+
+        //Convert $bookList (Objet PHP) in json
+        $jsonBookList = $serializer->serialize($bookList, 'json', ['groups' => 'getBooks']);
+
+        //Return $jsonBookList already in json
+        return new JsonResponse($jsonBookList, Response::HTTP_OK, [], true);
+    }
+
+
+//      Without sensio/framework-extra-bundle
+//    #[Route('/api/books/{id}', name: 'detailBook', methods: ['GET'])]
+//    public function getDetailBook(int $id, BookRepository $bookRepository, SerializerInterface $serializer): JsonResponse
+//    {
+//        //Find book by id
+//        $book = $bookRepository->findBy(
+//            ['id' => $id]
+//        );
+//
+//        //if the book exists
+//        if ($book) {
+//            //Convert $book (Objet PHP) in json
+//            $jsonBookList = $serializer->serialize($book, 'json', ['groups' => 'getBooks']);
+//
+//            //Return $jsonBookList already in json
+//            return new JsonResponse($jsonBookList, Response::HTTP_OK, [], true);
+//        }
+//
+//        //if the book does not exist
+//        return new JsonResponse(null, Response::HTTP_NOT_FOUND);
+//    }
+
+    //With sensio/framework-extra-bundle
+    #[Route('/api/books/{id}', name: 'detailBook', methods: ['GET'])]
+    public function getDetailBook(Book $book, SerializerInterface $serializer): JsonResponse
+    {
+        // Find book by id and serialize in json
+        $jsonBook = $serializer->serialize($book, 'json', ['groups' => 'getBooks']);
+
+        //Return $jsonBook already in json
+        return new JsonResponse($jsonBook, Response::HTTP_OK, [], true);
+    }
+}
